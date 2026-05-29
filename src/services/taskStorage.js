@@ -9,5 +9,14 @@ export function saveTasks(tasks){
 export function loadTasks(){
     const data = localStorage.getItem(STRONG_KEY)
 
-    return data ? JSON.parse(data) : console.log("nada")
+    if(!data || data === "undefined"){    
+        return []
+    }
+
+    try {        
+        return JSON.parse(data)   
+    } catch (error) {    
+        console.error("Erro ao carregar tasks: ", error)
+        return []
+    }
 }

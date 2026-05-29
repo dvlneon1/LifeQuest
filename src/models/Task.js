@@ -2,12 +2,21 @@ import { getXpByDifficulty } from "../utils/xpHelper"
 
 export class Task {
 
-    constructor(title, difficulty){
+    constructor(
+        title, 
+        difficulty, 
+        category
+    ){
+
         this.id = crypto.randomUUID()
         this.title = title
         this.difficulty = difficulty
+        this.category = category
         this.xpReward = getXpByDifficulty(difficulty)
         this.completed = false
         this.createdAt = new Date().toISOString()
+
+        console.log(category)
+    
     }
 }

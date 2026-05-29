@@ -19,12 +19,15 @@ export default function Dashboard(){
     const [player, setPlayer] = useState(() => loadPlayer() || new Player("Fernando")
     )
 
-    const [tasks, setTasks] = useState(loadTasks())
+    const [tasks, setTasks] = useState(() => loadTasks())
 
-    function handleAddTask(title, difficulty){
-        const newTask = new Task(title, difficulty)
+    function handleAddTask(title, difficulty, category){
+        const newTask = new Task(title, difficulty, category)
 
-        setTasks(prev => [...prev, newTask])
+        setTasks(prev => [
+            ...prev, 
+            newTask
+        ])
     }
 
     function handleCompleteTask(taskId){
