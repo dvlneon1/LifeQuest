@@ -1,7 +1,7 @@
 const STORAGE_KEY = "player"
 
 export function savePlayer(player){
-    if (!player){
+    if (!player || typeof player !==  "object"){
         console.warn("player inválido")
         
         return

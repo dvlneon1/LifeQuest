@@ -16,8 +16,7 @@ import { loadPlayer, savePlayer } from "../system/PlayerStorage"
 
 export default function Dashboard(){
 
-    const [player, setPlayer] = useState(
-        loadPlayer() || new Player("Fernando")
+    const [player, setPlayer] = useState(() => loadPlayer() || new Player("Fernando")
     )
 
     const [tasks, setTasks] = useState(loadTasks())
@@ -49,7 +48,11 @@ export default function Dashboard(){
     }
 
     useEffect(() => {saveTasks(tasks)}, [tasks])
-    useEffect(() => {savePlayer(Player)}, [player])
+    useEffect(() => {
+        if(player){
+            savePlayer(player)
+        }
+    }, [player])
 
     return(
         <div className="dashboard-main">
