@@ -20,7 +20,7 @@ export default function Dashboard(){
         loadPlayer() || new Player("Fernando")
     )
 
-    const [tasks, setTasks] = useState(loadTasks)
+    const [tasks, setTasks] = useState(loadTasks())
 
     function handleAddTask(title, difficulty){
         const newTask = new Task(title, difficulty)
@@ -50,7 +50,7 @@ export default function Dashboard(){
     return(
         <div className="dashboard-main">
             <div className="menu">
-                <h1>RPG Productivity</h1>
+                <h1>Life Quest v0.01_Alpha</h1>
                 <PlayerCard player={player} />
                 <TaskForm onAddTask={handleAddTask}/>
                 <TaskList tasks={tasks} onComplete={handleCompleteTask} onDelete={handleDeleteTask}/>

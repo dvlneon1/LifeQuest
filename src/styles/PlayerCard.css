@@ -3,5 +3,10 @@
 
     background: transparent;
     border: var(--border-default);
+
+    border-radius: var(--radius-default);
+
+    padding: 20px;
+    margin-bottom: 20px;
     
 }
