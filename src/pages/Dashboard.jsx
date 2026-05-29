@@ -33,9 +33,13 @@ export default function Dashboard(){
             task => task.id === taskId
         )
 
-        if(!task || task.completed) return PlayerSystem.addXp
+        if(!task || task.completed) 
+            return 
+        const updatePlayer = { ...player }
+        
+        PlayerSystem.addXp(updatePlayer, task.xpReward)
 
-        setPlayer({ ...player })
+        setPlayer(updatePlayer)
         
         setTasks(prev => prev.map(task => task.id === taskId ? {...task, completed: true} : task))
     }
