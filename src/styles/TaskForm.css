@@ -1,0 +1,122 @@
+.task-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    border: var(--border-default);
+    border-radius: var(--radius-default);
+    padding: 20px;
+
+    form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        flex-direction: column;
+
+        width: 100%;
+        
+        position: relative;
+        gap: 10px;
+
+        input{
+            width: 60%;
+
+            font-family: var(--font-secundary);
+
+            background-color: transparent;
+            color: var(--text-primary);
+
+            outline: none;
+            
+            border: var(--border-default);
+            border-radius: var(--radius-default);
+            
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+
+        select, option{
+            
+            width: 60%;
+
+            font-family: var(--font-secundary);
+            background-color: transparent;
+            outline: none;
+
+            border: var(--border-default);
+            border-radius: var(--radius-default);
+            padding: 10px;
+
+            margin-bottom: 15px;
+
+            color: var(--text-primary);
+            font-weight: 600;
+            
+            option {
+                background-color: transparent;
+                border: var(--border-default);
+                border-radius: var(--radius-default);
+            }
+        
+        }
+
+
+        button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 60%;
+            height: 3rem;
+            
+            background-color: var(--btn-default);
+            color: var(--text-primary);
+
+            font-family: var(--font-primary);
+            font-weight: 600;
+
+            outline: none;
+
+            padding: 10px;
+
+            border: var(--border-default);
+            border-radius: var(--radius-default);
+            position: relative;
+            cursor: pointer;
+            transition: .5s ease-in-out;
+            z-index: 99;
+
+        }
+
+        button:hover{
+            background-color: var(--hover-effect-light);
+        }
+
+        button::before{
+            content: '';
+            position: absolute;
+            
+            top: 0;
+            left: 0;
+            border-radius: var(--radius-default);
+
+            width: 0;
+            height: 3rem;
+            
+            display: inline-block;
+
+            transition: .3s ease-in-out;
+            z-index: -1;
+        }
+        
+        button:hover::before{
+            color: black;
+            width: 100%;
+            background-color: var(--btn-success);
+        }
+    }
+
+}

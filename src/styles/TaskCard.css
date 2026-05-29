@@ -1,0 +1,136 @@
+.task-card{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+
+    margin: 10px 0px;
+    color: var(--text-primary);
+
+    border: var(--border-default);
+    border-radius: var(--radius-default);
+
+    padding: 20px;
+    gap: 10px;
+    
+    h3{
+        font-family: var(--font-primary);
+    }
+
+    p{
+        font-family: var(--font-secundary);
+    }
+
+    .btn-success{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 60%;
+        height: 3rem;
+        
+        background-color: var(--btn-default);
+        color: var(--text-primary);
+
+        font-family: var(--font-primary);
+        font-weight: 600;
+
+        outline: none;
+
+        padding: 10px;
+
+        border: var(--border-default);
+        border-radius: var(--radius-default);
+        position: relative;
+        cursor: pointer;
+        transition: .5s ease-in-out;
+        z-index: 99;
+    }
+
+    .btn-success:hover{
+        background-color: var(--hover-effect-light);
+    }
+
+    .btn-success::before{
+        content: '';
+        position: absolute;
+            
+        top: 0;
+        left: 0;
+        border-radius: var(--radius-default);
+
+        width: 0;
+        height: 3rem;
+            
+        display: inline-block;
+
+        transition: .3s ease-in-out;
+        z-index: -1;
+    }
+        
+    .btn-success:hover::before{
+
+        width: 100%;
+        background-color: var(--btn-success);
+
+    }
+
+    .btn-delete{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 60%;
+        height: 3rem;
+            
+        background-color: var(--btn-default);
+        color: var(--text-primary);
+
+        font-family: var(--font-primary);
+        font-weight: 600;
+
+        outline: none;
+
+        padding: 10px;
+
+        border: var(--border-default);
+        border-radius: var(--radius-default);
+        position: relative;
+        cursor: pointer;
+        transition: .5s ease-in-out;
+        z-index: 99;
+    }
+
+    .btn-delete:hover{
+
+        background-color: var(--hover-effect-danger);
+
+    }
+
+    .btn-delete::before{
+        content: '';
+        position: absolute;
+            
+        top: 0;
+        left: 0;
+        border-radius: var(--radius-default);
+
+        width: 0;
+        height: 3rem;
+            
+        display: inline-block;
+
+        transition: .3s ease-in-out;
+        z-index: -1;
+    }
+
+    .btn-delete:hover::before{
+        color: black;
+        width: 100%;
+        background-color: var(--btn-danger);
+    }
+}
