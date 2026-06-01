@@ -6,12 +6,13 @@ export default function TaskForm({ onAddTask }){
     const [title, setTitle] = useState("")
     const [difficulty, setDifficulty] = useState("easy")
     const [category, setCategory] = useState("body")
+    const [subSkill, setSubSkill] = useState("strength")
 
     function handleSubmit(e){
 
         e.preventDefault()
         if (!title.trim()) return 
-        onAddTask(title, difficulty, category)
+        onAddTask(title, difficulty, category, subSkill)
         setTitle("")
 
     }   
@@ -32,6 +33,11 @@ export default function TaskForm({ onAddTask }){
                     <option value="finances">Finanças</option>
                     <option value="social">Social</option>
                 </select>
+                <select value={subSkill} onChange={(e) => setSubSkill(e.target.value)}>
+                    <option value="strength">Strength</option>
+                    <option value="cardio">Cardio</option>
+                </select>
+
                 <button type="submit">Adicionar Tarefa</button>
             </form>
         </div>

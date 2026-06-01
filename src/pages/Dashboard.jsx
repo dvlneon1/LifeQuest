@@ -2,7 +2,7 @@ import '../styles/Dashboard.css'
 
 import { useEffect, useState } from "react"
 import { Player } from "../models/Player"
-import { Task } from "../models/task"
+import { Task } from "../models/Task"
 
 import TaskForm from "../components/TaskForm"
 import TaskList from "../components/TaskList"
@@ -13,6 +13,7 @@ import { saveTasks, loadTasks } from "../services/taskStorage"
 import { PlayerSystem } from "../system/playerSystem"
 import { loadPlayer, savePlayer } from "../system/PlayerStorage"
 import { SkillSystem } from '../system/SkillSystem'
+import { SubSkillSystem } from '../system/SubSkillSystem'
 
 
 export default function Dashboard(){
@@ -23,8 +24,17 @@ export default function Dashboard(){
 
     const [tasks, setTasks] = useState(() => loadTasks())
 
-    function handleAddTask(title, difficulty, category){
-        const newTask = new Task(title, difficulty, category)
+
+    function handleAddTask(title, difficulty, category, subSkill){
+
+        console.log({
+            title,
+            difficulty,
+            category,
+            subSkill
+        })
+
+        const newTask = new Task(title, difficulty, category, subSkill)
 
         setTasks(prev => [
             ...prev, 
@@ -33,6 +43,8 @@ export default function Dashboard(){
     }
 
     function handleCompleteTask(taskId){
+
+
         
         const task = tasks.find(
             task => task.id === taskId
@@ -46,9 +58,27 @@ export default function Dashboard(){
 
         SkillSystem.addSkillXp(updatePlayer, task.category, task.xpReward)
 
+        console.log(updatePlayer)
+        console.log(updatePlayer.skills)
+        console.log(updatePlayer.skills?.body)
+        console.log(updatePlayer.skills?.body?.subSkills)
+        
+        if(task.subSkill){
+            SubSkillSystem.addXP(
+            updatePlayer,
+            task.category,
+            task.subSkill,
+            task.xpReward
+            )
+        }
+
         setPlayer(updatePlayer)
         
         setTasks(prev => prev.map(task => task.id === taskId ? {...task, completed: true} : task))
+
+                console.log("TASK:", task)
+        console.log("CATEGORY:", task.category)
+        console.log("SUBSKILL:", task.subSkill)
     
     }
 

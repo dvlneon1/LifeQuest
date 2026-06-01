@@ -5,13 +5,15 @@ export class Task {
     constructor(
         title, 
         difficulty, 
-        category
+        category,
+        subSkill
     ){
 
         this.id = crypto.randomUUID()
         this.title = title
         this.difficulty = difficulty
         this.category = category
+        this.subSkill = subSkill
         this.xpReward = getXpByDifficulty(difficulty)
         this.completed = false
         this.createdAt = new Date().toISOString()

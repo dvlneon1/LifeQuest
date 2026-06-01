@@ -9,13 +9,28 @@ export class Player{
     
     }
 
-    createSkills(){
+    createSkills() {
+
         const skills = {}
+
         for(const skillKey in skillsData){
-            skills[skillKey]={
+
+            skills[skillKey] = {
+
                 level: 1,
-                xp: 0
+                xp: 0,
+
+                subSkills: {}
             }
+
+            skillsData[skillKey].subSkills.forEach(subSkill => {
+
+                skills[skillKey].subSkills[subSkill] = {
+
+                    level: 1,
+                    xp: 0
+                }
+            })
         }
         return skills
     }
