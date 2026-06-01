@@ -1,21 +1,53 @@
 export const skillsData = {
     body: {
-        name: "Body"
+        name: "Body",
+
+        subSkills: [
+            "strength",
+            "cardio",
+            "mobility",
+            "nutrition"
+        ]
     },
 
     knowledge: {
-        name: "Knowledge"
+        name: "Knowledge",
+
+        subSkills: [
+            "programming",
+            "languages",
+            "mathematics",
+            "psycology"
+        ]
     },
 
     discipline: {
-        name: "Discipline"
+        name: "Discipline",
+
+        subSkills: [
+            "focus",
+            "consistency",
+            "timeManagement"
+        ]
     },
 
     finances: {
-        name: "Finances"
+        name: "Finances",
+
+        subSkills: [
+            "investing",
+            "sales",
+            "business"
+        ]
     },
 
     social: {
-        name: "Social"
+        name: "Social",
+
+        subSkills: [
+            "communication",
+            "networking",
+            "leadership"
+        ]
     }
 }
