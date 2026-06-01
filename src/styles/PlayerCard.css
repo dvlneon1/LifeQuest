@@ -1,20 +1,39 @@
+.card-profile{
+    display: grid;
+    grid-template-columns: 1fr;
+
+    width: 200px;
+    gap: 20px;
+}
+
+
+
 .player-card{
     width: 100%;
-
-    background: transparent;
-    border: var(--border-default);
-
-    border-radius: var(--radius-default);
-
-    padding: 20px;
-    margin-bottom: 20px;
-
-    display: flex;
-    flex-direction: column;
     
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
+    font-family: var(--font-card);
     
+    color: black;
+
+    border: 0;
+
+    box-shadow:  var(--pixel-border);
+    background: var(--pixel-bg-card);
+
+    padding: 10px;
+
+}
+
+.skills-container{
+    font-family: var(--font-card);
+    color: black;
+
+
+    background: var(--pixel-bg-card);
+    border: 0;
+    box-shadow: var(--pixel-border);
+    
+
+    padding: 10px;
+
 }

@@ -2,88 +2,90 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 
-    border: var(--border-default);
-    border-radius: var(--radius-default);
-    padding: 20px;
+    border: 0;
+    box-shadow: var(--pixel-border);
+    padding: 10px;
+
+    margin-bottom: 20px;
+
+
 
     form{
+        padding: 10px 0px;
         display: flex;
         justify-content: center;
         align-items: center;
 
         flex-direction: column;
 
+        font-size: 12px;
+
         width: 100%;
         
         position: relative;
-        gap: 10px;
+        gap: 20px;
 
         input{
+            font-family: var(--font-card);
+            color: #000;
             width: 60%;
-
-            font-family: var(--font-secundary);
 
             background-color: transparent;
             color: var(--text-primary);
 
             outline: none;
-            
-            border: var(--border-default);
-            border-radius: var(--radius-default);
+
+            border: 0;
+            box-shadow: var(--pixel-border);
             
             padding: 10px;
-            margin-bottom: 5px;
         }
 
-
-        select, option{
-            
+        select {
             width: 60%;
-
-            font-family: var(--font-secundary);
-            background-color: transparent;
-            outline: none;
-
-            border: var(--border-default);
-            border-radius: var(--radius-default);
             padding: 10px;
 
-            margin-bottom: 15px;
+            border-radius: 0;
 
-            color: var(--text-primary);
-            font-weight: 600;
+            font-family: var(--font-card);
             
-            option {
-                background-color: transparent;
-                border: var(--border-default);
-                border-radius: var(--radius-default);
+            border: 0;
+            box-shadow: var(--pixel-border);
+            
+            background-color: var(--pixel-bg-card);
+            
+            &, &::picker(select){
+                appearance: base-select;
+
+                border: 0;
+                box-shadow: var(--pixel-border);
+                padding: 10px 10px;
             }
-        
         }
-
+}
+        
 
         button{
+            font-family: var(--font-card);
+
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 20px;
 
             width: 60%;
             height: 3rem;
             
             background-color: var(--btn-default);
-            color: var(--text-primary);
-
-            font-family: var(--font-primary);
-            font-weight: 600;
 
             outline: none;
 
             padding: 10px;
 
-            border: var(--border-default);
-            border-radius: var(--radius-default);
+            border: 0;
+            box-shadow: var(--pixel-border);
+
             position: relative;
             cursor: pointer;
             transition: .5s ease-in-out;
@@ -92,31 +94,39 @@
         }
 
         button:hover{
+            color: white;
             background-color: var(--hover-effect-light);
         }
 
         button::before{
             content: '';
             position: absolute;
-            
-            top: 0;
+                
+            top: 0px;
             left: 0;
-            border-radius: var(--radius-default);
 
             width: 0;
             height: 3rem;
-            
+                
             display: inline-block;
 
             transition: .3s ease-in-out;
             z-index: -1;
+            box-shadow: var(--pixel-border);
         }
         
         button:hover::before{
-            color: black;
+            color: white;
             width: 100%;
             background-color: var(--btn-success);
+            box-shadow: var(--pixel-border-hover);
+        }
+
+        button:active{
+            transform: translate(0, 8px);
+
+            box-shadow:var(--pixel-border-active-success) 
+    
         }
     }
 
-}

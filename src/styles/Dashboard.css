@@ -9,5 +9,11 @@
 }
 
 .menu {
-    width: 600px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    
+    width: 100%;
+    max-width: 650px;
+    
+    gap: 10px;
 }
