@@ -16,22 +16,14 @@ export function savePlayer(player){
 export function loadPlayer(){
     const data = localStorage.getItem(STORAGE_KEY)
     
-    if(!data || data === "undefined"){
+    if(!data){
         return null
     }
 
-    try {
+    const player = JSON.parse(data)
 
-        return JSON.parse(data)
-        
-    } catch (error) {
-        console.error(
-            "Error ao carregar player",
-            error
-        )
-        
-        localStorage.removeItem(STORAGE_KEY)
-
-        return null
+    if(player.gold === undefined){
+        player.gold = 0
     }
+    return player
 }

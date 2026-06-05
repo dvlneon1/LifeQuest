@@ -55,10 +55,15 @@ export default function Dashboard(){
         
         const updatePlayer = structuredClone(player)
 
+        if(updatePlayer.gold === undefined){
+            updatePlayer.gold = 0
+        }
+
         PlayerSystem.addXp(updatePlayer, task.xpReward)
 
         SkillSystem.addSkillXp(updatePlayer, task.category, task.xpReward)
 
+        console.log(updatePlayer.gold)
         updatePlayer.gold += task.goldReward
 
         console.log(updatePlayer)
