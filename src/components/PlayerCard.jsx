@@ -1,6 +1,8 @@
 import XpBar from './XpBar'
 import { getXpRequired } from '../utils/levelHelper'
 
+
+
 import AchievementList from './AchievementList'
 
 import { useState } from 'react'
@@ -63,6 +65,7 @@ export default function PlayerCard({ player }){
                             }
 
                         </div>
+                        
                     )
                 )}
             </div>

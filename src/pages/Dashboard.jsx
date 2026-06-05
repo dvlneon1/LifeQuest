@@ -4,10 +4,13 @@ import { useEffect, useState } from "react"
 import { Player } from "../models/Player"
 import { Task } from "../models/Task"
 
+
 import TaskForm from "../components/TaskForm"
 import TaskList from "../components/TaskList"
 import PlayerCard from "../components/PlayerCard"
 import AchievementToast from "../components/AchievementToast"
+import DailyQuestCard from '../components/DailyQuestCard'
+
 
 import { saveTasks, loadTasks } from "../services/taskStorage"
 
@@ -15,13 +18,24 @@ import { PlayerSystem } from "../system/playerSystem"
 import { loadPlayer, savePlayer } from "../system/PlayerStorage"
 import { SkillSystem } from '../system/SkillSystem'
 import { SubSkillSystem } from '../system/SubSkillSystem'
+import { DailyQuestSystem } from "../system/DailyQuestSystem"
 import { AchievementSystem } from '../system/AchievementSystem'
 
 
 export default function Dashboard(){
 
     const [player, setPlayer] = useState(
-        () => loadPlayer() || new Player("Fernando")
+        () => {
+            const savedPlayer = loadPlayer()
+
+            if(savedPlayer){
+                DailyQuestSystem.generate(savePlayer)
+                return savedPlayer
+            }
+            const newPlayer = new Player("Fernando")
+            DailyQuestSystem.generate(newPlayer)
+            return newPlayer
+        }
     )
 
     const [tasks, setTasks] = useState(() => loadTasks())
@@ -63,6 +77,33 @@ export default function Dashboard(){
         }
 
         updatePlayer.stats.taskCompleted++
+
+        if(!updatePlayer.dailyQuests){
+            updatePlayer.dailyQuests = []
+        }
+
+        updatePlayer.dailyQuests.forEach(quest => {
+            if(quest.completed) return
+
+            switch(quest.type){
+                case "tasksCompleted":
+                    quest.progress++
+                    break
+                case "xpEarned":
+                    quest.progress += task.xpReward
+                    break
+                case "gold_earned":
+                    quest.progress += task.goldReward
+                    break
+            }
+
+            if(quest.progress >= quest.target){
+                quest.completed = true
+
+                updatePlayer.xp += quest.reward.xp
+                updatePlayer.gold += quest.reward.gold
+            }
+        })
 
         if(updatePlayer.gold === undefined){
             updatePlayer.gold = 0
@@ -130,7 +171,8 @@ export default function Dashboard(){
                         <TaskForm onAddTask={handleAddTask}/>
                         <TaskList tasks={tasks} onComplete={handleCompleteTask} onDelete={handleDeleteTask}/>
                     </div>
-                    <div>
+                    <div className="daily-quest-card">
+                        <DailyQuestCard quests={player.dailyQuests} />
                     </div>
                 </div>
             </div>

@@ -15,6 +15,9 @@ export class Player{
             totalGoldEarned: 0
         }
 
+        this.dailyQuest = []
+        this.dailyQuestDate = null
+
         this.achievements = []
 
     }

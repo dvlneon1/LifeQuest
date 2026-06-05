@@ -18,18 +18,18 @@ export function loadPlayer(){
 
     const player = JSON.parse(data)
 
-    if(player.gold === undefined){
-        player.gold = 0
+    player.gold ??= 0
+
+    player.achievements ??= []
+
+    player.stats = { taskCompleted: 0 }
+
+    if(!player.dailyQuests){
+        player.dailyQuests = []
     }
 
-    if(!player.achievements) {
-        player.achievements = []
-    }
-
-    if(!player.stats){
-        player.stats = {
-            taskCompleted: 0
-        }
+    if(!player.dailyQuestsDate){
+        player.dailyQuestsDate = null
     }
 
     return player
