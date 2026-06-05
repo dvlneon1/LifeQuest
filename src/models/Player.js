@@ -5,9 +5,18 @@ export class Player{
         this.name = name
         this.level = 1
         this.xp = 0
-        this.skills = this.createSkills()
         this.gold = 0
-    
+
+        this.skills = this.createSkills()
+
+        this.stats = { 
+            taskCompleted: 0,
+            totalXpEarned: 0,
+            totalGoldEarned: 0
+        }
+
+        this.achievements = []
+
     }
 
     createSkills() {

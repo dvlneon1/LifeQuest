@@ -14,6 +14,7 @@ import { PlayerSystem } from "../system/playerSystem"
 import { loadPlayer, savePlayer } from "../system/PlayerStorage"
 import { SkillSystem } from '../system/SkillSystem'
 import { SubSkillSystem } from '../system/SubSkillSystem'
+import { AchievementSystem } from '../system/AchievementSystem'
 
 
 export default function Dashboard(){
@@ -44,8 +45,6 @@ export default function Dashboard(){
     }
 
     function handleCompleteTask(taskId){
-
-
         
         const task = tasks.find(
             task => task.id === taskId
@@ -54,6 +53,8 @@ export default function Dashboard(){
         if(!task || task.completed) return 
         
         const updatePlayer = structuredClone(player)
+
+        updatePlayer.stats.taskCompleted++
 
         if(updatePlayer.gold === undefined){
             updatePlayer.gold = 0
@@ -65,6 +66,15 @@ export default function Dashboard(){
 
         console.log(updatePlayer.gold)
         updatePlayer.gold += task.goldReward
+
+        const unlockedAchievement = AchievementSystem.check(updatePlayer)
+
+        if(unlockedAchievement.length > 0){
+            console.log("Nova conquista!")
+        
+            console.log(unlockedAchievement)
+        }
+
 
         console.log(updatePlayer)
         console.log(updatePlayer.skills)
