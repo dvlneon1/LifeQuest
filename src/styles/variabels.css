@@ -25,6 +25,7 @@
 
     --pixel-border: 0px 5px #212123, 0 -5px #212123, 5px 0px #212123, -5px 0px #212123, 0px 10px #45444f, 5px 5px #45444f, -5px 5px #45444f, inset 0px 5px #b8b5b9 ;
     --pixel-bg-card: #868188;
+    --pixel-bg-card-dark: #9c94a0;
 
     --pixel-border-hover: 0px 5px #8ab060, 0 -5px #8ab060, 5px 0px #8ab060, -5px 0px #8ab060, 0px 10px #45444f, 5px 5px #45444f, -5px 5px #45444f, inset 0px 5px #c2d368 ;
     --pixel-border-danger-hover: 0px 5px #b45252, 0 -5px #b45252, 5px 0px #b45252, -5px 0px #b45252, 0px 10px #45444f, 5px 5px #45444f, -5px 5px #45444f, inset 0px 5px #d3a068 ;

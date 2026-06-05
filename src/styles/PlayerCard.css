@@ -1,11 +1,12 @@
 .card-profile{
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
 
-    width: 200px;
+    width: 320px;
     gap: 20px;
 
-    margin: 0  35px 0 0;
+    margin-right: 5px;
+
 }
 
 
@@ -36,18 +37,27 @@
     box-shadow: var(--pixel-border);
     
 
-    padding: 10px;
+    padding: 15px;
 
 }
 
 .skill-block{
     font-size: 12px;
-    padding: 15px 5px 15px 5px;
-    margin: 10px 5px 20px 5px;
+    padding: 10px;
+    margin-bottom: 20px;
 
     border: 0;
     box-shadow: var(--pixel-border);
+    background: var(--pixel-bg-card-dark);
+
+    cursor: pointer;
+    transition: .3s;
 }
+
+.skill-block:hover{
+    transform: translateY(-2px);
+}
+
 
 .sub-skills{
     margin-left: 15px;
@@ -55,5 +65,9 @@
 }
 
 .sub-skill{
-    margin-top: 8px;
+    margin-top: 10px;
+
+    padding: 5px 5px 5px 8px;
+
+    border-left: 3px solid #212123;
 }
