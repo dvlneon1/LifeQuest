@@ -6,6 +6,7 @@ export class Player{
         this.level = 1
         this.xp = 0
         this.skills = this.createSkills()
+        this.gold = 0
     
     }
 

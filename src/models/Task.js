@@ -1,3 +1,4 @@
+import { getGoldByDifficulty } from "../utils/goldHelper"
 import { getXpByDifficulty } from "../utils/xpHelper"
 
 export class Task {
@@ -15,6 +16,7 @@ export class Task {
         this.category = category
         this.subSkill = subSkill
         this.xpReward = getXpByDifficulty(difficulty)
+        this.goldReward = getGoldByDifficulty(difficulty)
         this.completed = false
         this.createdAt = new Date().toISOString()
 

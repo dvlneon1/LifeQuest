@@ -25,16 +25,17 @@ export default function Dashboard(){
     const [tasks, setTasks] = useState(() => loadTasks())
 
 
-    function handleAddTask(title, difficulty, category, subSkill){
+    function handleAddTask(title, difficulty, category, subSkill, gold){
 
         console.log({
             title,
             difficulty,
             category,
-            subSkill
+            subSkill,
+            gold,
         })
 
-        const newTask = new Task(title, difficulty, category, subSkill)
+        const newTask = new Task(title, difficulty, category, subSkill, gold)
 
         setTasks(prev => [
             ...prev, 
@@ -57,6 +58,8 @@ export default function Dashboard(){
         PlayerSystem.addXp(updatePlayer, task.xpReward)
 
         SkillSystem.addSkillXp(updatePlayer, task.category, task.xpReward)
+
+        updatePlayer.gold += task.goldReward
 
         console.log(updatePlayer)
         console.log(updatePlayer.skills)

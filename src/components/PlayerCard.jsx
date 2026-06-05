@@ -12,10 +12,12 @@ export default function PlayerCard({ player }){
         <div className="card-profile">
             <div className="player-card"> 
                 <h2>{player.name}</h2> 
+                <p>Gold: {player.gold}</p>
                 <p>Level: {player.level}</p> 
                 <p>XP: {player.xp}{" / "}{getXpRequired(player.level)}</p>
 
                 <XpBar currentXp={player.xp} requiredXp={getXpRequired(player.level)}/>
+
             </div>
             <div className="skills-container">
                 {Object.entries(player.skills).map(
