@@ -1,6 +1,8 @@
 import XpBar from './XpBar'
 import { getXpRequired } from '../utils/levelHelper'
 
+import AchievementList from './AchievementList'
+
 import { useState } from 'react'
 import '../styles/PlayerCard.css'
 
@@ -17,6 +19,8 @@ export default function PlayerCard({ player }){
                 <p>XP: {player.xp}{" / "}{getXpRequired(player.level)}</p>
 
                 <XpBar currentXp={player.xp} requiredXp={getXpRequired(player.level)}/>
+
+                <AchievementList achievements={player.achievements}/>
 
             </div>
             <div className="skills-container">
@@ -62,6 +66,7 @@ export default function PlayerCard({ player }){
                     )
                 )}
             </div>
+
         </div>
 
     )

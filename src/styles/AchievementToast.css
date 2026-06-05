@@ -1,0 +1,33 @@
+.achievement-toast{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 320px;
+
+    display: flex;
+    gap: 12px;
+
+    padding: 16px;
+
+    box-shadow: var(--pixel-border);
+    background-color: var(--pixel-bg-card);
+
+    z-index: 9999;
+    animation: slideIn .4s ease;
+}
+
+.toast-icon{
+    font-size: 2rem;
+}
+
+@keyframes slideIn {
+    from{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

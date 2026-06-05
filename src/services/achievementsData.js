@@ -1,7 +1,8 @@
 export const achievementsData = [
     {
         id: "first_task",
-        title: "Primeiro Passo",
+        icon: "🏆",
+        name: "Primeiro Passo",
         description: "Complete sua primeira Tarefa",
         condition: {
             type:"taskCompleted",
@@ -14,7 +15,8 @@ export const achievementsData = [
     },
     {
         id: "worker",
-        title: "Trabalhador",
+        icon: "⚒️",
+        name: "Trabalhador",
         description: "Complete 10 tarefas",
         condition: {
             type: "taskCompleted",
@@ -27,7 +29,8 @@ export const achievementsData = [
     },
     {
         id: "rich",
-        title: "Primeiras Economias",
+        icon: "💰",
+        name: "Primeiras Economias",
         description: "Acumule 500 de Gold",
         condition: {
             type: "gold",

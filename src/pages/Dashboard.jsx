@@ -7,6 +7,7 @@ import { Task } from "../models/Task"
 import TaskForm from "../components/TaskForm"
 import TaskList from "../components/TaskList"
 import PlayerCard from "../components/PlayerCard"
+import AchievementToast from "../components/AchievementToast"
 
 import { saveTasks, loadTasks } from "../services/taskStorage"
 
@@ -25,6 +26,7 @@ export default function Dashboard(){
 
     const [tasks, setTasks] = useState(() => loadTasks())
 
+    const [toastAchievement, setToastAchievement] = useState(null)
 
     function handleAddTask(title, difficulty, category, subSkill, gold){
 
@@ -70,9 +72,9 @@ export default function Dashboard(){
         const unlockedAchievement = AchievementSystem.check(updatePlayer)
 
         if(unlockedAchievement.length > 0){
-            console.log("Nova conquista!")
-        
-            console.log(unlockedAchievement)
+            setToastAchievement(unlockedAchievement[0])
+
+            setTimeout(() => {setToastAchievement(null)}, 4000)
         }
 
 
@@ -112,18 +114,21 @@ export default function Dashboard(){
     }, [player])
 
     return(
-        <div className="dashboard-main">
-            <div className="menu">
-                <div className="profile-card">
-                    <PlayerCard player={player} />
-                </div>
-                <div>
-                    <TaskForm onAddTask={handleAddTask}/>
-                    <TaskList tasks={tasks} onComplete={handleCompleteTask} onDelete={handleDeleteTask}/>
-                </div>
-                <div>
+        <>
+            <div className="dashboard-main">
+                <div className="menu">
+                    <div className="profile-card">
+                        <PlayerCard player={player} />
+                    </div>
+                    <div>
+                        <TaskForm onAddTask={handleAddTask}/>
+                        <TaskList tasks={tasks} onComplete={handleCompleteTask} onDelete={handleDeleteTask}/>
+                    </div>
+                    <div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <AchievementToast achievement={toastAchievement}/>
+        </>
     )
 }

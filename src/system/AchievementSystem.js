@@ -10,7 +10,7 @@ export class AchievementSystem {
         const unlocked = []
 
         achievementsData.forEach(achievement => {
-            const areadyUnlocked = player.achievement.includes(achievement.id)
+            const areadyUnlocked = player.achievements.some(a => a.id === achievement.id)
 
             if(areadyUnlocked) return
 
@@ -26,9 +26,7 @@ export class AchievementSystem {
             }
 
             if(completed){
-                player.achievement.push(
-                    achievement.id
-                )
+                player.achievements.push(achievement)
 
                 player.xp += achievement.reward.xp
                 player.gold += achievement.reward.gold
