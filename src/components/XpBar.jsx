@@ -6,7 +6,7 @@ export default function XpBar({currentXp, requiredXp}){
 
     return (
         <div className="xp-bar-container">
-            <div className="xp-bar-fill" style={{width: `${percentage}`}}></div>
+            <div className="xp-bar-fill" style={{width: `${percentage}%`}}></div>
         </div>
     )
 }

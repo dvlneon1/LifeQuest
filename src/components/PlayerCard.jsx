@@ -45,6 +45,7 @@ export default function PlayerCard({ player }){
                                                         <div key={subSkillName} className="sub-skill">
                                                             <strong>{subSkillName}</strong>
                                                             <p>Lv: {subSkill.level}</p>
+                                                            <p>XP: {subSkill.xp} / {getXpRequired(subSkill.level)}</p>
                                                             <XpBar currentXp={subSkill.xp} requiredXp={getXpRequired(subSkill.level)}/>
                                                         </div>
                                                     )
