@@ -56,6 +56,12 @@ export default function Dashboard(){
         
         const updatePlayer = structuredClone(player)
 
+        if(!updatePlayer.stats){
+            updatePlayer.stats = {
+                taskCompleted: 0
+            }
+        }
+
         updatePlayer.stats.taskCompleted++
 
         if(updatePlayer.gold === undefined){
