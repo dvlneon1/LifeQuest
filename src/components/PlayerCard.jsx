@@ -10,11 +10,23 @@ export default function PlayerCard({ player }){
             </div>
             <div className="skills-container">
                 {Object.entries(player.skills).map(
-                    ([key, skill]) => (
-                        <div key={key}>
-                            <h4>{key}</h4>
-                            <p>Level: {skill.level}</p>
-                                <p>xp: {skill.xp}</p>
+                    ([skillKey, skill]) => (
+                        <div key={skillKey} className="skill-block">
+                            <h4>{skillKey}</h4>
+                            <p>Lv: {skill.level} {" | "}  xp: {skill.xp}</p>
+
+                            <div className="sub-skills">
+                                {
+                                    Object.entries(skill.subSkills).map(
+                                        ([subSkillName, subSkill]) => (
+                                            <div key={subSkillName} className="sub-skill">
+                                                <strong>{subSkillName}</strong>
+                                                <p>Lv: {subSkill.level} {" | "} xp: {subSkill.xp}</p>
+                                            </div>
+                                        )
+                                    )
+                                }
+                            </div>
                         </div>
                     )
                 )}
