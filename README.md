@@ -21,6 +21,9 @@ Cada tarefa concluída gera XP, ouro, progresso em habilidades e sub-habilidades
 
 Cada categoria possui sua própria árvore de progressão.
 
+
+
+
 #### Body
 
 * Strength
@@ -66,9 +69,11 @@ Ao concluir uma tarefa:
 * Missões diárias são atualizadas
 * Conquistas são verificadas
 
+<img width="330" height="670" alt="image" src="https://github.com/user-attachments/assets/b0b7233b-3c70-4ff5-8299-d7a60e964f82" />
 ---
 
 ### 🏆 Sistema de Conquistas
+<img width="331" height="233" alt="image" src="https://github.com/user-attachments/assets/ed2fec9d-d2d6-4835-92ba-5f0184b5be6e" />
 
 Exemplos:
 
@@ -88,6 +93,7 @@ Além disso, um Toast Notification aparece quando uma conquista é desbloqueada.
 ### 📅 Daily Quests
 
 Missões geradas diariamente:
+<img width="296" height="266" alt="image" src="https://github.com/user-attachments/assets/4b571fd6-48b8-40d9-a85f-864ed9f612a1" />
 
 * Completar tarefas
 * Ganhar XP
