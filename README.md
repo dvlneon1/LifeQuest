@@ -1,16 +1,192 @@
-# React + Vite
+# 🎮 LifeQuest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Transforme sua vida em um RPG.
 
-Currently, two official plugins are available:
+LifeQuest é uma aplicação desenvolvida em React que gamifica tarefas diárias, permitindo que o usuário evolua seu personagem ao completar atividades da vida real.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Cada tarefa concluída gera XP, ouro, progresso em habilidades e sub-habilidades, além de desbloquear conquistas e completar missões diárias.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Funcionalidades
 
-## Expanding the ESLint configuration
+### 👤 Sistema de Jogador
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Level global
+* Sistema de XP
+* Ouro (Gold)
+* Progressão persistente via LocalStorage
+
+### ⚔️ Sistema de Skills
+
+Cada categoria possui sua própria árvore de progressão.
+
+#### Body
+
+* Strength
+* Cardio
+* Mobility
+* Nutrition
+
+#### Knowledge
+
+* Programming
+* Languages
+* Mathematics
+* Psychology
+
+#### Discipline
+
+* Focus
+* Consistency
+* Time Management
+
+#### Finances
+
+* Investing
+* Sales
+* Business
+
+#### Social
+
+* Communication
+* Networking
+* Leadership
+
+---
+
+### 📈 Sistema de Progressão
+
+Ao concluir uma tarefa:
+
+* XP do personagem aumenta
+* XP da Skill aumenta
+* XP da SubSkill aumenta
+* Ouro é recebido
+* Missões diárias são atualizadas
+* Conquistas são verificadas
+
+---
+
+### 🏆 Sistema de Conquistas
+
+Exemplos:
+
+* Primeiro Passo
+* Trabalhador
+* Primeiras Economias
+
+Cada conquista oferece recompensas:
+
+* XP
+* Gold
+
+Além disso, um Toast Notification aparece quando uma conquista é desbloqueada.
+
+---
+
+### 📅 Daily Quests
+
+Missões geradas diariamente:
+
+* Completar tarefas
+* Ganhar XP
+* Ganhar Gold
+
+Recompensas:
+
+* XP extra
+* Gold extra
+
+---
+
+### 🎯 Dificuldades de Tarefas
+
+| Dificuldade | XP  | Gold |
+| ----------- | --- | ---- |
+| Easy        | 10  | 5    |
+| Medium      | 25  | 15   |
+| Hard        | 50  | 30   |
+| Very Hard   | 100 | 75   |
+
+---
+
+## 🛠️ Tecnologias
+
+* React
+* JavaScript (ES6+)
+* Vite
+* CSS3
+* LocalStorage
+
+---
+
+## 🚀 Instalação
+
+Clone o projeto:
+
+```bash
+git clone https://github.com/dvlneon1/LifeQuest.git
+```
+
+Entre na pasta:
+
+```bash
+cd LifeQuest
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o projeto:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🗺️ Roadmap
+
+### Sistema Atual
+
+* [x] Player Level
+* [x] XP System
+* [x] Gold System
+* [x] Skills
+* [x] SubSkills
+* [x] Achievement System
+* [x] Achievement Toast
+* [x] Daily Quests
+* [x] Local Persistence
+
+### Próximas Atualizações
+
+* [ ] Inventário
+* [ ] Loja
+* [ ] Equipamentos
+* [ ] Sistema de Classes
+* [ ] Sistema de Streak
+* [ ] Boss Battles
+* [ ] Calendário de Hábitos
+* [ ] Backend com Firebase
+* [ ] Multiplayer Social
+* [ ] Aplicativo Mobile
+
+---
+
+## 📸 Preview
+
+<img width="1231" height="546" alt="image" src="https://github.com/user-attachments/assets/1fa7cb2c-645f-46db-aa96-a2e6223aa5da" />
+
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por Fernando Tomain.
+
+Projeto criado para transformar produtividade em uma experiência de RPG.
