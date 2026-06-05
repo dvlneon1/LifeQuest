@@ -1,13 +1,18 @@
-import { useState } from "react";
 import '../styles/TaskForm.css';
+import { skillsData } from "../services/skillsData";
+import { useState } from "react";
+
 
 
 export default function TaskForm({ onAddTask }){
+    
     const [title, setTitle] = useState("")
     const [difficulty, setDifficulty] = useState("easy")
     const [category, setCategory] = useState("body")
-    const [subSkill, setSubSkill] = useState("strength")
-
+    const [subSkill, setSubSkill] = useState(skillsData.body.subSkills[0])
+    
+    const availableSubSkills = skillsData[category]?.subSkills || []
+    
     function handleSubmit(e){
 
         e.preventDefault()
@@ -26,16 +31,36 @@ export default function TaskForm({ onAddTask }){
                     <option value="hard">Difícil</option>
                     <option value="veryHard">Muito Difícil</option>
                 </select>
-                <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                    <option value="body">Corpo</option>
-                    <option value="knowledge">Conhecimento</option>
-                    <option value="discipline">Disciplina</option>
-                    <option value="finances">Finanças</option>
-                    <option value="social">Social</option>
+                <select value={category} onChange={(e) => {
+                    const selectedCategory = e.target.value
+                    
+                    setCategory(selectedCategory)
+
+                    setSubSkill(skillsData[selectedCategory].subSkills[0])
+                    }
+                }>
+                    {
+                        Object.entries(skillsData).map(
+                            ([key, skill]) => (
+
+                                <option
+                                    key={key}
+                                    value={key}
+                                >
+                                    {skill.name}
+                                </option>
+                            )
+                        )
+                    }
                 </select>
                 <select value={subSkill} onChange={(e) => setSubSkill(e.target.value)}>
-                    <option value="strength">Strength</option>
-                    <option value="cardio">Cardio</option>
+                    {
+                        availableSubSkills.map(
+                            (subSkill) => (
+                                <option key={subSkill} value={subSkill}>{subSkill}</option>
+                            )
+                        )
+                    }
                 </select>
 
                 <button type="submit">Adicionar Tarefa</button>

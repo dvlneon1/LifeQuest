@@ -76,7 +76,7 @@ export default function Dashboard(){
         
         setTasks(prev => prev.map(task => task.id === taskId ? {...task, completed: true} : task))
 
-                console.log("TASK:", task)
+        console.log("TASK:", task)
         console.log("CATEGORY:", task.category)
         console.log("SUBSKILL:", task.subSkill)
     
